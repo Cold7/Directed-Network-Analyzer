@@ -10,6 +10,6 @@ it is defined by the source node, target node and a attribute, separed by tabs. 
 
 A B 1 
 
-where between A and B there exist a tab space
+where between A and B there exist a tab space and the same thing between B and 1
 
 
