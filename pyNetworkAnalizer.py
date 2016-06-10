@@ -17,11 +17,10 @@ def parallelProperties(name):
 	listOfInteractions=[] #i will save interactions to rebuild the directed digraph
 	for line in file:
 		splittedLine=line.split("\t")
-		if splittedLine[2][:-1]!="0":
-			node1=splittedLine[0]
-			node2=splittedLine[1]
-			listOfInteractions.append(node1+":"+node2)
-			MG.add_edge(node1, node2)
+		node1=splittedLine[0]
+		node2=splittedLine[1]
+		listOfInteractions.append(node1+":"+node2)
+		MG.add_edge(node1, node2)
 
 	file.close()
 	#####################################
@@ -45,11 +44,10 @@ def parallelProperties(name):
 	#################################################################### 
 	for line in file:
 		splittedLine=line.split("\t")
-		if splittedLine[2][:-1]!="0":
-			node1=splittedLine[0]
-			node2=splittedLine[1]
-			dictProp[node1]["Out_degree"]=str(int(dictProp[node1]["Out_degree"])+1)
-			dictProp[node2]["In_degree"]=str(int(dictProp[node2]["In_degree"])+1)
+		node1=splittedLine[0]
+		node2=splittedLine[1]
+		dictProp[node1]["Out_degree"]=str(int(dictProp[node1]["Out_degree"])+1)
+		dictProp[node2]["In_degree"]=str(int(dictProp[node2]["In_degree"])+1)
 		
 	file.close()			
 				
@@ -220,7 +218,7 @@ def main():
 	#number of processors to use
 	parser.add_argument("-P","--path", help="path where TSV files are located")
 	parser.add_argument("-R","--results", help="/Path/where/resultfiles/will/be/saved (do not put / after path) If you do not specify a path, current path of script will be used")
-	parser.add_argument("-I","--Input", help="A single input file (you fxcking retarded), ")
+	parser.add_argument("-I","--Input", help="A single TSV input file ")
 	
 	parser.add_argument("-N","--nproc",help="Number of processors to use. Default: all", default="all")
 	args = parser.parse_args()
